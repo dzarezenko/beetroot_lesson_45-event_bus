@@ -13,11 +13,15 @@ export default {
       required: true,
       //default: "Some Name",
     },
+    callback: {
+      type: Function,
+    },
   },
   methods: {
     changeName() {
       //this.userName = "Elon";
-      this.$emit("nameChanged", "Elon");
+      //this.$emit("nameChanged", "Elon");
+      this.callback("Elon");
     },
   },
 }

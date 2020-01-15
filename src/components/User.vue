@@ -5,7 +5,7 @@
       <br />
       <button @click="changeName('Steve')">Change Name</button>
     </h3>
-    <user-details :userName="name" @nameChanged="changeName($event)" />
+    <user-details :userName="name" :callback="changeName" />
     <user-edit />
   </div>
 </template>
