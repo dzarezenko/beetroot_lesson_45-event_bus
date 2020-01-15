@@ -1,12 +1,12 @@
 <template>
   <div id="main_container">
     <h3 style="width: 100%">
-      Name: {{ name }}
+      Name: {{ eventBus.name }}
       <br />
-      <button @click="changeName('Steve')">Change Name</button>
+      <button @click="eventBus.changeName('Steve')">Change Name</button>
     </h3>
-    <user-details :userName="name" />
-    <user-edit :userName="name" />
+    <user-details :userName="eventBus.name" />
+    <user-edit :userName="eventBus.name" />
   </div>
 </template>
 
@@ -19,24 +19,12 @@ import UserEdit from "@/components/UserEdit"
 export default {
   data() {
     return {
-      name: "Bill",
+      eventBus
     }
   },
   components: {
     "user-details": UserDetails,
     "user-edit": UserEdit,
-  },
-  methods: {
-    changeName(_name) {
-      this.name = _name;
-    }
-  },
-  created() {
-    eventBus.$on("nameChanged", (name) => {
-      //alert("!!!");
-      //console.log(name);
-      this.changeName(name);
-    });
   },
 }
 </script>
