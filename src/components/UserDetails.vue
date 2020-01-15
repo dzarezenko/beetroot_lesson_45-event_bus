@@ -6,7 +6,13 @@
 
 <script>
 export default {
-  props: [ "userName" ]
+  props: {
+    userName: {
+      type: [ String, Number ],
+      required: true,
+      //default: "Some Name",
+    },
+  }
 }
 </script>
 
