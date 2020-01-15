@@ -32,10 +32,10 @@ export default {
     }
   },
   created() {
-    eventBus.$on("nameChanged", (...event) => {
+    eventBus.$on("nameChanged", (name) => {
       //alert("!!!");
-      //console.log(event);
-      this.changeName(event[0] + " " + event[1]);
+      //console.log(name);
+      this.changeName(name);
     });
   },
 }
