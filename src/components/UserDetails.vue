@@ -22,7 +22,7 @@ export default {
       //this.$emit("nameChanged", "Elon");
       //this.callback("Elon");
 
-      eventBus.$emit("nameChanged", "Elon");
+      eventBus.$emit("nameChanged", "Elon", "Musk");
     },
   },
 }
