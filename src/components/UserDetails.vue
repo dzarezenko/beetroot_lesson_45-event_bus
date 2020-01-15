@@ -16,16 +16,9 @@ export default {
   },
   methods: {
     changeName() {
-      this.userName = "Elon"
+      //this.userName = "Elon";
+      this.$emit("nameChanged", "Elon");
     },
-  },
-  data() {
-    return {
-      name: "",
-    }
-  },
-  created() {
-    this.name = this.userName;
   },
 }
 </script>

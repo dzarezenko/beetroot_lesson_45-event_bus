@@ -3,9 +3,9 @@
     <h3 style="width: 100%">
       Name: {{ name }}
       <br />
-      <button @click="changeName">Change Name</button>
+      <button @click="changeName('Steve')">Change Name</button>
     </h3>
-    <user-details :userName="name" />
+    <user-details :userName="name" @nameChanged="changeName($event)" />
     <user-edit />
   </div>
 </template>
@@ -25,8 +25,8 @@ export default {
     "user-edit": UserEdit,
   },
   methods: {
-    changeName() {
-      this.name = "Steve";
+    changeName(_name) {
+      this.name = _name;
     }
   }
 }
