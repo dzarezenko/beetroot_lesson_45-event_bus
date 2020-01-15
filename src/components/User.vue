@@ -6,7 +6,7 @@
       <button @click="changeName('Steve')">Change Name</button>
     </h3>
     <user-details :userName="name" />
-    <user-edit />
+    <user-edit :userName="name" />
   </div>
 </template>
 
