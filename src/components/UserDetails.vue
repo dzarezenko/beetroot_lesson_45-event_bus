@@ -6,6 +6,8 @@
 </template>
 
 <script>
+import { eventBus } from  "../main";
+
 export default {
   props: {
     userName: {
@@ -13,15 +15,14 @@ export default {
       required: true,
       //default: "Some Name",
     },
-    callback: {
-      type: Function,
-    },
   },
   methods: {
     changeName() {
       //this.userName = "Elon";
       //this.$emit("nameChanged", "Elon");
-      this.callback("Elon");
+      //this.callback("Elon");
+
+      eventBus.$emit("nameChanged", "Elon");
     },
   },
 }

@@ -5,12 +5,14 @@
       <br />
       <button @click="changeName('Steve')">Change Name</button>
     </h3>
-    <user-details :userName="name" :callback="changeName" />
+    <user-details :userName="name" />
     <user-edit />
   </div>
 </template>
 
 <script>
+import { eventBus } from  "../main";
+
 import UserDetails from "@/components/UserDetails"
 import UserEdit from "@/components/UserEdit"
 
@@ -28,7 +30,14 @@ export default {
     changeName(_name) {
       this.name = _name;
     }
-  }
+  },
+  created() {
+    eventBus.$on("nameChanged", (event) => {
+      //alert("!!!");
+      //console.log(event);
+      this.changeName(event);
+    });
+  },
 }
 </script>
 
