@@ -1,6 +1,11 @@
 <template>
   <div id="main_container">
-    <user-details />
+    <h3 style="width: 100%">
+      Name: {{ name }}
+      <br />
+      <button @click="changeName">Change Name</button>
+    </h3>
+    <user-details :userName="name" />
     <user-edit />
   </div>
 </template>
@@ -10,9 +15,19 @@ import UserDetails from "@/components/UserDetails"
 import UserEdit from "@/components/UserEdit"
 
 export default {
+  data() {
+    return {
+      name: "Bill",
+    }
+  },
   components: {
     "user-details": UserDetails,
     "user-edit": UserEdit,
+  },
+  methods: {
+    changeName() {
+      this.name = "Steve";
+    }
   }
 }
 </script>
@@ -20,12 +35,12 @@ export default {
 <style scoped>
 #main_container {
   width: 96%;
-  height: 300px;
   background-color: aquamarine;
   border: 1px solid #000;
   display: block;
   padding: 10px;
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
 }
 </style>
