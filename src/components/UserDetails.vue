@@ -1,6 +1,7 @@
 <template>
   <div id="user_details">
     <h3>User Name: {{ userName }}</h3>
+    <button @click="changeName">Change Name</button>
   </div>
 </template>
 
@@ -12,7 +13,20 @@ export default {
       required: true,
       //default: "Some Name",
     },
-  }
+  },
+  methods: {
+    changeName() {
+      this.userName = "Elon"
+    },
+  },
+  data() {
+    return {
+      name: "",
+    }
+  },
+  created() {
+    this.name = this.userName;
+  },
 }
 </script>
 
